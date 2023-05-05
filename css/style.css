@@ -1,0 +1,127 @@
+body{
+    background-color: #f3f3f3;
+    font-family: sans-serif !important;
+}
+header {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header nav {
+    display: flex;
+    align-items: center;
+    }
+header nav img {
+margin-right:0;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-start;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+nav li {
+  margin: 0 10px;
+}
+nav li:first-child {
+  margin-left: 0;
+}
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+
+.header-message {
+  background-color: #49689c;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  font-weight: lighter;
+}
+
+.column-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.column {
+  flex: 1;
+  padding: 40px;
+  box-sizing: border-box;
+  border-right: 1px solid #ddd;
+  /* margin: 10px; */
+  margin-left: 50px;
+  margin-right: 80px;
+  margin-top: 10px;
+
+}
+.column:nth-child(2) {
+ border: none;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  margin-bottom: 10px;
+}
+input[type="text"],
+input[type="password"] {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.remember-me {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.remember-me input[type="checkbox"] {
+  margin-right: 10px;
+}
+.forgot-password {
+  text-align: right;
+}
+.forgot-password a {
+  color: rgb(62, 157, 235);
+  text-decoration: underline;
+  padding-top: 10px;
+}
+.column .loginOption:after, .column .loginOption:before {
+content: "";
+display: inline-block;
+width: 30%;
+height: 1px;
+margin: 0 10px;
+border-bottom: 2px dotted #ddd;
+vertical-align: middle;
+}
+
+.column .loginOption:after {
+margin-left: 0;
+}
+.image-button {
+border: none;
+background-color: #fff;
+margin-left: 10px;
+padding: 0;
+}
