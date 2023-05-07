@@ -1,0 +1,15 @@
+body{
+    font-family: monospace;
+}
+pre{
+    font-family: 'Courier New', Courier, monospace;
+}
+code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    margin-left: 100px;
+    width: 60%;
+    font-family: monospace;
+  }
