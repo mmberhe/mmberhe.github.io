@@ -10,8 +10,8 @@
 </head>
 <body>
     <pre>
-        <p> <small> Q.1 </small>Define a function max() that takes two numbers as arguments and returns the largest of them. Use the
-            if-then else construct available in Javascript.</p>
+         <small> Q.1 Define a function max() that takes two numbers as arguments and returns the largest of them. Use the
+            if-then else construct available in Javascript. </small>
         <code>
             function max(a,b){
                 if( a> b){
@@ -79,7 +79,7 @@
             
             function sum(args){
                 sum=0;
-                for(let i = 0; i< args.length; i++){
+                for(let i = 0; i &lt; args.length; i++){
                     sum+=args[i];
                 }
                 return sum;
@@ -87,7 +87,7 @@
 
             function multiply(args){
                 mul = 1;
-                for(let i = 0; i< args.length; i++){
+                for(let i = 0; i &lt; args.length; i++){
                     mul*=args[i];
                 }
                 return mul;
@@ -222,7 +222,7 @@
                 fiboSequence.push(b);
               
                 // Generate the rest of the sequence
-                for (let i = 2; i < n; i++) {
+                for (let i = 2; i &lt n; i++) {
                   let nextNumber = fiboSequence[i - 1] + fiboSequence[i - 2];
                   fiboSequence.push(nextNumber);
                 }
