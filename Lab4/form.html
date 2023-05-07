@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/formstyle.css">
+    <title>Lab 4</title>
+</head>
+
+<body class="container-fluid px-0">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand pr-5" href="#">MUM Golden Dome Market ::: SRM System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+
+                        <a class="nav-link active" href="#">| Products
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">| Suppliers</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <label class="form-label pt-md-2 text-light me-sm-2">Hello!</label>
+                    <button class="btn btn-light my-2 my-sm-0" type="submit"> Sign Out</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="row py-5 m-0">
+
+        <div class="col-md-10 ms-auto me-auto">
+            <h3>New Product Form</h3>
+            <form class="row pt-3 text-muted">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="pNumber" class="form-label">Product Number</label>
+                        <input type="number" class="form-control" id="pNumber">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="uPrice" class="form-label">Unit Price</label>
+                        <input class="form-control" id="uPrice" placeholder="1.0">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="qStock" class="form-label">Quantity in Stock</label>
+                        <input class="form-control" id="qStock" placeholder="0">
+                    </div>
+                    <div class="mb-3">
+                        <label for="supplier" class="form-label">Supplier</label>
+                        <select class="form-select" id="selectElement">
+                            <option value="select-picker">Select a supplier</option>
+                            <option value="supplier1">Supplier One</option>
+                            <option value="supplier2">Supplier Two</option>
+                        </select>
+                    </div>
+            
+                    <div class="mb-3">
+                        <label for="dSupplied" class="form-label">Date Supplied</label>
+                        <input type="date" class="form-control" id="dSupplied" placeholder="YYYY-MM-DD">
+                        <label> Enter a valid Date.</label>
+                    </div>
+
+                </div>
+                <div class="col-6 ms-auto pt-3 d-flex justify-content-end">
+                    <div class="px-3"><button type="reset" class="btn btn-outline-info">Reset</button></div>
+                    <div class="px-5"><button type="button" class="btn btn-outline-danger">Cancel</button></div>
+                    <div class="pl-3"><button type="submit" class="btn btn-outline-primary">Add Product</button></div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <footer>
+            
+        <a href="http://validator.w3.org/check/?url=https://mmberhe.github.io/Lab4/form.html">
+            <img src= "http://mumstudents.org/cs472/2014-09/images/w3c-html.png" alt="Valid HTML!">
+        </a>
+
+        <a href="https://jigsaw.w3.org/css-validator/validator?uri=mmberhe.github.io/css/formstyle.css" 
+        rel="nofollow" title="Validate as CSS"> 
+        <img src= "http://mumstudents.org/cs472/2014-09/images/w3c-css.png" alt="Valid CSS!"></a>
+        <p> &copy; 2023 CS472</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="refresh" content="0; url=form.html"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/formstyle.css">
+    <title>Lab 4</title>
+</head>
+
+<body class="container-fluid px-0">
+    <div class="row">
+        <div class="col-md-4 ms-auto me-auto">
+            <form class="pt-3 text-muted" action="form.html" method="get">
+                <div class="mb-3">
+                    <label for="isSecure" class="form-label"><small>URL</small></label>
+                    <input type="text" class="form-control" id="isSecure" required pattern="https?://.*" title="start your URL either http:// or https://" placeholder="Enter url">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label"><small>Username or Email</small></label>
+                    <input type="email" class="form-control" id="email" required title="Please enter a valid username" placeholder="Enter email">
+                    <label for="email" class="form-label"><small>We'll never share your email with anyone else</small></label>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label"><small>Password</small></label>
+                    <input type="password" class="form-control" id="password" minlength="10"
+                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{10,}$" required
+                        title="Minimum 10 characters containing 1 lowercase, 1 uppercase, and 1 digit." placeholder="Password">
+                </div>
+                <div class="mb-3 form-check d-flex">
+                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                    <label class="ps-2 form-check-label" for="rememberMe">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary w-45" value="Submit">Submit</button>
+            </form>
+
+        </div>
+    </div>
+    
+    <footer>
+            
+        <a href="http://validator.w3.org/check/?url=https://mmberhe.github.io/Lab4/index.html">
+            <img src= "http://mumstudents.org/cs472/2014-09/images/w3c-html.png" alt="Valid HTML!">
+        </a>
+
+        <a href="https://jigsaw.w3.org/css-validator/validator?uri=mmberhe.github.io/css/formstyle.css" 
+        rel="nofollow" title="Validate as CSS"> 
+        <img src= "http://mumstudents.org/cs472/2014-09/images/w3c-css.png" alt="Valid CSS!"></a>
+        <p> &copy; 2023 CS472</p>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
