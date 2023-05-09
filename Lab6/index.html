@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 6</title>
+    <link rel="stylesheet" href="../css/table.css">
+</head>
+<body>
+    
+
+    <div class="question">
+
+        <p> Q.1  Draw the lexical environment diagram for the following code snippet. </p>
+        <pre>
+            <code>
+                var a = 5;
+                var b= 10; 
+                var c = function(a, b, c){
+                    document.write(x); // print Undefined
+                    document.write(a); // print 8
+                    var f = function(a, b, c){
+                        b = a;
+                        document.write(b); // print 8
+                        b = c;
+                        var x = 5;
+                    }
+                    f(a,b,c);
+                    document.write(b); // print 9
+                    var x = 10;
+                }
+                
+                c(8,9,10);
+                document.write(b); // print 10
+            </code>
+        </pre>
+    <h3> f Execution Context(f EC) </h3>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th> LE Creation Phase</th>
+                <th>Execution Phase</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>x: Undefined</td>
+                <td></td>
+                
+            </tr>
+            
+            <tr class="active-row">
+                <td> argument{0:8,1:9,2:10, length:3}</td>
+                <td>argument{0:8,1:9,2:10, length:3}</td>
+            </tr>
+            <tr>
+                <td> a=8,b=9,c=10</td>
+                <td> a=8,b=9,c=10</td>
+                
+            </tr>
+            
+
+            <tr>
+                <td></td>
+                <td>b=9,8,10</td>
+                
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>x=5</td>
+                
+            </tr>
+
+            <tr>
+                <td>outer: c</td>
+                <td>outer: c</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3> c Execution Context(c EC) </h3>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th> LE Creation Phase</th>
+                <th>Execution Phase</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>x: Undefined</td>
+                <td></td>
+                
+            </tr>
+            <tr class="active-row">
+                <td> argument{0:8,1:9,2:10, length:3}</td>
+                <td> argument{0:8,1:9,2:10, length:3}</td>
+
+            </tr>
+
+            <tr>
+                <td>a=8,b=9,c=10</td>
+                <td>a=8,b=9,c=10</td>
+                
+            </tr>
+            <tr class="active-row">
+                <td>f: Undefined</td>
+                <td>f: fn </td>
+            </tr>
+
+            
+
+            <tr class="active-row">
+                <td></td>
+                <td>x = 10 </td>
+
+            </tr>
+            
+            <tr>
+                <td>outer: Global</td>
+                <td>outer: Global</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3> Global Execution Context(GEC) </h3>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th> LE Creation Phase</th>
+                <th>Execution Phase</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="active-row">
+                <td>a: Undefined</td>
+                <td>a: 5</td>
+            </tr>
+            <tr class="active-row">
+                <td>b: Undefined</td>
+                <td>b: 10</td>
+            </tr>
+            <tr class="active-row">
+                <td>c: Undefined</td>
+                <td>c: fn</td>
+            </tr>
+
+            <tr>
+                <td>outer: null</td>
+                <td>outer: null</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    </div>
+
+
+
+
+
+    <div class="question">
+        <p>Q.2 Draw the lexical environment diagram for the following code snippet.</p>
+        <pre>
+            <code>
+
+                var x = 9;
+                function myfunction(){
+                    return x*x;
+                }
+                document.write(myfunction()); // print 81
+                x = 5;
+                document.write(myfunction()); // print 25
+            </code>
+        </pre>
+
+
+
+
+    <h3> myfunction Execution Context( myfunction EC) </h3>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th> LE Creation Phase</th>
+                <th>Execution Phase</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>argument{length: 0}</td>
+                <td>argument{length: 0}</td>
+                
+            </tr>
+
+            <tr>
+                <td>outer: Global</td>
+                <td>outer: Global</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3> Global Execution Context(GEC) </h3>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th> LE Creation Phase</th>
+                <th>Execution Phase</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>x: Undefined</td>
+                <td>x: 9</td>
+                
+            </tr>
+            <tr class="active-row">
+                <td>myfunction: fn</td>
+                <td>myfunction: fn</td>
+            </tr>
+
+
+            <tr class="active-row">
+                <td></td>
+                <td>x=9,5</td>
+            </tr>
+            <tr>
+                <td>outer: null</td>
+                <td>outer: null</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    </div>
+
+
+
+
+
+
+
+   <div class="question">
+    <p>Q.3 Draw the lexical environment diagram for the following code snippet.</p>
+    <pre>
+
+        <code>
+            var foo = 1;
+            function bar(){
+
+                if(!foo){
+                    var foo = 10;
+                }
+                alert(foo); // print 10
+            }
+            bar();
+        </code>
+    </pre>
+
+
+
+
+    <h3> bar Execution Context( bar EC) </h3>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th> LE Creation Phase</th>
+                <th>Execution Phase</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>foo: Undefined</td>
+                <td>foo: 10</td>
+                
+            </tr>
+            <tr class="active-row">
+                <td>argument{length:0}</td>
+                <td>argument{length:0}</td>
+            </tr>
+
+            <tr>
+                <td>outer: Global</td>
+                <td>outer: Global</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3> Global Execution Context(GEC) </h3>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th> LE Creation Phase</th>
+                <th>Execution Phase</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>foo: Undefined</td>
+                <td>foo: 1</td>
+                
+            </tr>
+            <tr class="active-row">
+                <td>bar: fn</td>
+                <td>bar: fn</td>
+            </tr>
+
+            <tr>
+                <td>outer: null</td>
+                <td>outer: null</td>
+            </tr>
+        </tbody>
+    </table>
+   </div>
+
+
+
+   <footer>
+            
+    <a href="http://validator.w3.org/check/?url=https://mmberhe.github.io/Lab6/index.html">
+        <img src= "http://mumstudents.org/cs472/2014-09/images/w3c-html.png" alt="Valid HTML!">
+    </a>
+
+    <a href="https://jigsaw.w3.org/css-validator/validator?uri=mmberhe.github.io/css/table.css" 
+    rel="nofollow" title="Validate as CSS"> 
+    <img src= "http://mumstudents.org/cs472/2014-09/images/w3c-css.png" alt="Valid CSS!"></a>
+    <p> &copy; 2023 CS472</p>
+</footer>
+
+</body>
+</html>
