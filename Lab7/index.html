@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 7</title>
+    <link rel="stylesheet" href="../css/callcontext.css">
+</head>
+
+<body>
+
+    <div class="question">
+        <p>Q1: Fix a function that loses "this"
+
+            The call to askPassword() in the code below should check the password and then call user.loginOk/loginFail
+            depending on the answer But it leads to an error. Why?
+            Fix the highlited line for everything to start working right (other lines are not to be changed).
+        </p>
+        <pre>
+        <code>
+           
+            function askPassword(ok, fail){
+                let password = prompt("Password?",'');
+                if (password == "rockstar") ok();
+                else fail();
+            }
+            
+            let user = {
+                name: 'John',
+                loginOk(){
+                    alert(`${this.name} logged in`);
+                },
+                loginFail(){
+                    alert(`${this.name} failed to log in`);
+                },
+                
+            };
+            
+            <span id="highlight">askPassword(user.loginOk, user.loginFail);</span>
+            
+            // Fix:
+            askPassword(user.loginOk.bind(user), user.loginFail.bind(user));
+            
+
+            
+        </code>
+
+    </pre>
+    </div>
+
+
+    <div class="question">
+        <p>
+            Q.2: Fix the code below using bind.
+        </p>
+        <pre>
+        <code>
+
+            let group = {
+                title: "Our Group",
+                students: ["John", "Pete", "Alice"],
+
+                showList: function() {
+                    this.students.forEach(function(student) {
+                        console.log(this.title + ": " + student);
+                    });
+                }
+            };
+            group.showList();
+            
+            <small id="answer"> Answer</small>
+
+            let group = {
+                title: "Our Group",
+                students: ["John", "Pete", "Alice"],
+
+                showList: function () {
+                    this.students.forEach(function (student) {
+                        console.log(this.title + ": " + student
+                        ).bind(this);
+                    });
+                }
+            };
+            group.showList();
+            
+        </code>
+
+    </pre>
+    </div>
+
+
+    <footer>
+            
+        <a href="http://validator.w3.org/check/?url=https://mmberhe.github.io/Lab7/index.html">
+            <img src= "http://mumstudents.org/cs472/2014-09/images/w3c-html.png" alt="Valid HTML!">
+        </a>
+    
+        <a href="https://jigsaw.w3.org/css-validator/validator?uri=mmberhe.github.io/css/callcontext.css" 
+        rel="nofollow" title="Validate as CSS"> 
+        <img src= "http://mumstudents.org/cs472/2014-09/images/w3c-css.png" alt="Valid CSS!"></a>
+        <p> &copy; 2023 CS472</p>
+    </footer>
+    
+
+
+</body>
+
+</html>

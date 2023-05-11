@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 2</title>
+    <link rel="stylesheet" href="../css/practice.css">
+</head>
+
+<body>
+    <div class="question">
+        <p> Q1: Print the odd numbers. You're not allowed to use for, while,
+            do...while, for..of, forEach loop. </p>
+        <pre>
+        <code>
+            const numbers = [1, 5, 18, 2, 77, 108];
+            // answer
+            console.log(numbers.filter(x=> x%2!=0));
+        </code>
+    </pre>
+    </div>
+
+
+    <div class="question">
+        <p> Q2: Create a function using function declaration named sum with one parameter of Array type, the returned
+            result is the sum of all elements which are greater than 20. </p>
+        <pre>
+        <code>
+            
+            // answer
+            function sum(arr){
+                return arr.filter(a=> a>20).reduce((x,y) => x+y, 0)
+            }
+        </code>
+    </pre>
+    </div>
+
+
+    <div class="question">
+        <p> Q3: Create a function using function expression named getNewArray with one parameter of String Array, return
+            a new array which contains all string, length is greater than and equal to 5, and contains letter 'a'. </p>
+        <pre>
+        <code>
+            getNewArray(["Hello", "Wonderful", "Happy", "People", "Have a great day"]);
+
+            const getNewArray = function array(strArray){
+	                return strArray.filter(x→ x.length >= 5 && x.includes('a'));
+                }
+        </code>
+
+    </pre>
+    </div>
+
+
+    <div class="question">
+        <p>Q.4 Based on the code below:</p>
+        <pre>
+        <code>
+            var a = 2;
+            let b = 3;
+            function outer() {
+                let c = 5;
+                var d = 7;
+                return function inner() {
+                        b = 8;
+                        let c = 9;
+                        
+                        console.log(a);
+                        console.log(b);
+                        console.log(c);
+                        console.log(d);
+                    }
+                }
+                outer()();
+                    </code>
+
+    </pre>
+        <ol>
+            <li>What's the LE of global EC after creation phase finished before execution phase starts? <p>Ans: GEC
+                    {a:undefined, b:undefined, outer: fn, outer:null} // naming conflict outer</p>
+            </li>
+            <li>What's the LE of global EC after execution phase finished? <p>Ans: LE {a:2, b:3, outer: fn, outer: null}
+                </p>
+            </li>
+            <li>What's the LE of function outer EC after creation phase finished before execution phase starts?<p>Ans:
+                    Outer Creation Phase {d: undefined, c: undefined, argument: {length:0}, inner: fn, outer: global}
+                </p>
+            </li>
+            <li>What's the LE of function outer EC after execution phase finished?<p>Ans: Outer Execution Phase {d: 7,
+                    c: 5, argument: {length:0}, inner: fn, outer: global}</p>
+            </li>
+            <li>What's the LE of function inner EC after creation phase finished before execution phase starts?<p>Ans:
+                    InnerEC Creation Phase {c:undefined, argument:{length:0} outer: outer}</p>
+            </li>
+            <li>What's the LE of function inner EC after execution phase finished?<p>Ans: Inner EC Execution Phase {
+                    b:3,8 c:9, argument:{length:0} outer: outer}</p>
+            </li>
+        </ol>
+    </div>
+
+
+    <div class="question">
+        <p> Q.5 Given the HTML and CSS Specify what colors will show on the screen for the background and foreground
+            color of
+            <em>First,Second and Third</em>.
+        </p>
+        <pre>
+        <code>
+             &lt;body&gt;
+                &lt;p style="color:red"&gt; First &lt;/p&gt;
+                &lt;div class="central"&gt;
+
+                    &lt;p class="item"&gt; Second &lt;/p&gt;
+                    &lt;ul&gt;
+                        &lt;li id="item"&gt; Third &lt;/li&gt;
+                    &lt;/ul&gt;
+
+                &lt;/div&gt;
+            &lt;body&gt;
+
+            
+
+            body { 
+                background-color: yellow; 
+                color: blue; 
+              } 
+            p { color: orange; } 
+            .central, .item { 
+                color: green;  
+              } 
+            #item { 
+                background-color: white; 
+            }
+            ul{
+             color: purple;
+             background-color: beige;
+            }
+        </code>
+
+    </pre>
+
+        <table>
+            <tr>
+                <th></th>
+                <th>Background-color</th>
+                <th>Color</th>
+
+            </tr>
+            <tr>
+                <td>First</td>
+                <td id="firstBackColor">Yellow</td>
+                <td id="firstColor">Red</td>
+
+            </tr>
+            <tr>
+                <td>Second</td>
+                <td id="secondBackColor">Yellow</td>
+                <td id="secondColor">Green</td>
+
+            </tr>
+            <tr>
+                <td>Third</td>
+                <td id="thirdBackColor">White</td>
+                <td id="thirdColor">purple</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="question">
+        <p> Q6: Write a regular expression that matches a string containing a date in the format mm/dd/yyyy. </p>
+        <pre>
+        <code>
+            // answer
+
+            (0[1-9]|1[12])\/([012][1-9]|[12]0|3[01])\/\d{4}
+        </code>
+
+    </pre>
+    </div>
+
+
+    <div class="question">
+        <p>Q7: Write a JavaScript function that takes an object with a firstName and lastName property, and returns a
+            new object with a fullName property that combines the two names. Use a regular function to define the
+            fullName property and the this keyword to refer to the firstName and lastName properties.</p>
+        <pre>
+        <code>
+            // answer
+
+            function fullName(person) {
+                person.fullName = function() {
+                    return this.firstName + " " + this.lastName; 
+               } 
+               return person;
+            }
+        </code>
+
+    </pre>
+    </div>
+
+    <div class="question">
+        <p>Q8: Write a JavaScript function that takes an object with a firstName and lastName property, and a callback
+            function that logs a message using the this keyword. Bind the callback function to the object using the bind
+            method, and call the bound function with no arguments.</p>
+        <pre>
+        <code>
+            // answer
+
+            let person = { 
+                firstName: 'Shewit', 
+                lastName: 'Tsekawe', 
+            }; 
+            let logMessage = function(){ 
+                console.log(`Hello, my name is ${this.firstName} ${this.lastName}`);
+            };
+
+            let boundLogMessage = logMessage.bind(person); 
+            boundLogMessage(); // print 'Hello, my name is Shewit Tsekawe'
+        </code>
+
+    </pre>
+    </div>
+
+    <footer>
+            
+        <a href="http://validator.w3.org/check/?url=https://mmberhe.github.io/Practice2/index.html">
+            <img src= "http://mumstudents.org/cs472/2014-09/images/w3c-html.png" alt="Valid HTML!">
+        </a>
+    
+        <a href="https://jigsaw.w3.org/css-validator/validator?uri=mmberhe.github.io/css/practice.css" 
+        rel="nofollow" title="Validate as CSS"> 
+        <img src= "http://mumstudents.org/cs472/2014-09/images/w3c-css.png" alt="Valid CSS!"></a>
+        <p> &copy; 2023 CS472</p>
+    </footer>
+    
+
+
+</body>
+
+</html>
