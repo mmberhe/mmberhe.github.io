@@ -79,23 +79,26 @@
     </pre>
         <ol>
             <li>What's the LE of global EC after creation phase finished before execution phase starts? <p>Ans: GEC
-                    {a:undefined, b:undefined, outer: fn, outer:null} // naming conflict outer</p>
+                    {a:undefined, outer: fn, outer:null}, tdz{b} // naming conflict outer</p>
             </li>
             <li>What's the LE of global EC after execution phase finished? <p>Ans: LE {a:2, b:3, outer: fn, outer: null}
                 </p>
             </li>
             <li>What's the LE of function outer EC after creation phase finished before execution phase starts?<p>Ans:
-                    Outer Creation Phase {d: undefined, c: undefined, argument: {length:0}, inner: fn, outer: global}
+                    Outer Creation Phase {d: undefined, argument: {length:0}, inner: fn, outer: global}, tdz{c}
                 </p>
             </li>
             <li>What's the LE of function outer EC after execution phase finished?<p>Ans: Outer Execution Phase {d: 7,
                     c: 5, argument: {length:0}, inner: fn, outer: global}</p>
             </li>
             <li>What's the LE of function inner EC after creation phase finished before execution phase starts?<p>Ans:
-                    InnerEC Creation Phase {c:undefined, argument:{length:0} outer: outer}</p>
+                    InnerEC Creation Phase {argument:{length:0} outer: outer},tdz{c}</p>
             </li>
-            <li>What's the LE of function inner EC after execution phase finished?<p>Ans: Inner EC Execution Phase {
-                    b:3,8 c:9, argument:{length:0} outer: outer}</p>
+            <li>What's the LE of function inner EC after execution phase finished?<p>Ans: Inner EC Execution Phase { c:9, argument:{length:0} outer: outer}</p>
+                    <p>Ans: Outer LE {d: 7,
+                        c: 5, argument: {length:0}, inner: fn, outer: global}</p>
+                    <p>Ans: Global LE {a:2, b:3,8, outer: fn, outer: null}
+                    </p>
             </li>
         </ol>
     </div>
