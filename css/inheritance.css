@@ -1,0 +1,32 @@
+.question{
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    margin: 20px;
+}
+code {
+    border: 1px solid #999;
+    display: block;
+    margin-left: 100px;
+    width: 60%;
+    background-color: rgb(162, 175, 175);
+  }
+  p{
+    margin-left: 10px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+em{
+    color: cadetblue;
+    font-weight: lighter;
+}
+span{
+    font-weight: lighter;
+    padding-top: 3px;
+}
+.fix{
+    margin-left: 45px;
+}
+.properties{
+    margin-left: 65px;
+    font-weight: bold;
+}

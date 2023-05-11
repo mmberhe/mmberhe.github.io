@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 8</title>
+    <link rel="stylesheet" href="../css/inheritance.css">
+</head>
+
+<body>
+
+    <div class="question">
+        <p>Q1:
+            Create an object <em>student</em> using object literal which has:
+            <p class="properties">Properties: FirstName:String, LastName:String, Grades:Array</p>
+            <p class="properties">Methods:
+                inputNewGrade(newGrade): push newGrade to Grades
+                computeAverageGrade(): return average of Grades </p>
+        </p>
+        <p class="fix">
+            Create an Array with multiple students which are created using <em>Object.create()</em>;
+        </p>
+        <pre>
+        <code>
+           
+            // Object literal
+
+            let student = {
+                FirstName: String,
+                LastName: String,
+                Grades: [],
+                inputNewGrade: function (newGrade) {
+                    this.Grades.push(newGrade);
+                },
+                computeAverageGrade: function () {
+                    return this.Grades.reduce((a, b) => a + b, 0) / this.Grades.length;
+                }
+            };
+            
+            // Array with multiple students
+
+            let students = [];
+            let std1 = Object.create(student);
+
+            std1.FirstName = "Musie";
+            std1.LastName = "Meressa";
+            std1.Grades = [90,91,92];
+            students.push(std1);
+
+            let std2 = Object.create(student);
+
+            std2.FirstName = "Shewit";
+            std2.LastName = "Tsekawe";
+            std2.Grades = [98,96,92];
+            students.push(std2);
+
+            
+        </code>
+
+    </pre>
+    </div>
+
+
+    <div class="question">
+        <p>
+            Q.2: Redo question 1 using constructor function.
+        </p>
+        <pre>
+        <code>
+
+        
+            // Constructor function
+
+            function Student(firstName, lastName) {
+                this.FirstName = firstName;
+                this.LastName = lastName;
+                this.Grades = [];
+                this.inputNewGrade = function (newGrade) {
+                    this.Grades.push(newGrade);
+                };
+                this.computeAverageGrade = function () {
+            
+                    return this.Grades.reduce((a, b) => a + b, 0) / this.Grades.length;
+                };
+            }
+            
+            // Array with multiple students
+
+            let students =  [ ];
+                
+        
+            let std1 = new Student("Musie", "Meressa");
+            let std2 = new Student("Shewit", "Tsekawe");
+
+            std1.Grades = [90,92,93];
+            std2.Grades = [93,94,96];
+
+            students.push(std1);
+            students.push(std2);
+            
+        </code>
+
+    </pre>
+    </div>
+
+    <div class="question">
+        <p>
+            Q.3: Add a new method named sort without parameters in built-in constructor function Array.
+            It will sort all elements in the array in ascending order.
+        </p>
+        <pre>
+        <code>
+
+            Array.prototype.sort = function() {
+                this.sort(function (a, b) { return a - b });
+              }
+        </code>
+
+    </pre>
+    </div>
+
+
+
+    <footer>
+            
+        <a href="http://validator.w3.org/check/?url=https://mmberhe.github.io/Lab8/index.html">
+            <img src= "http://mumstudents.org/cs472/2014-09/images/w3c-html.png" alt="Valid HTML!">
+        </a>
+    
+        <a href="https://jigsaw.w3.org/css-validator/validator?uri=mmberhe.github.io/css/inheritance.css" 
+        rel="nofollow" title="Validate as CSS"> 
+        <img src= "http://mumstudents.org/cs472/2014-09/images/w3c-css.png" alt="Valid CSS!"></a>
+        <p> &copy; 2023 CS472</p>
+    </footer>
+
+
+</body>
+
+</html>
