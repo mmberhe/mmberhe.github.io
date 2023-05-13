@@ -93,7 +93,7 @@
             
             // Array with multiple students
 
-            let students =  [ ];
+            
                 
         
             let std1 = new Student("Musie", "Meressa");
@@ -102,8 +102,20 @@
             std1.Grades = [90,92,93];
             std2.Grades = [93,94,96];
 
-            students.push(std1);
-            students.push(std2);
+            std1.inputNewGrade(90);
+            std1.inputNewGrade(95);
+
+
+            std2.FirstName = "Shewit";
+            std2.LastName = "Tsekawe";
+            std2.Grades = [98,96,92];
+
+            std2.inputNewGrade(98);
+            std2.inputNewGrade(96);
+
+            std1.computeAverageGrade();
+            std2.computeAverageGrade();
+            
             
         </code>
 
