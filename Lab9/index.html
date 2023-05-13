@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 8</title>
+    <link rel="stylesheet" href="../css/class.css">
+</head>
+
+<body>
+
+    <div class="question">
+        <p>Q1: This is a quiz system which allows students to take quizzes, get each student's quiz score and compute
+            average score of students.
+            Use constructor functions or class syntax to implement Student, Question and Quiz.
+        </p>
+        <div>
+            <p class="heads">Constructor function/class Student:</p>
+        </div>
+        <ul>
+            <li>Properties:</li>
+            <ul>
+                <li><span class="propandMethod">studentID</span>: a unique student ID</li>
+                <li><span class="propandMethod">answers</span>: holds an array that records the student's answer for the questions.</li>
+            </ul>
+            <li>Method:</li>
+            <ul>
+                <li><span class="propandMethod">addAnswer(question)</span>: add student's question(id,answer) to answers array.</li>
+            </ul>
+        </ul>
+
+        <pre>
+        <code>
+           class Student{
+                constructor(studentID){
+                    this.studentID = student;
+                    this.answers = [];
+                }
+
+                addAnswer(question){
+                    this.answers.push(question);
+                }
+           }
+            
+        </code>
+
+    </pre>
+
+
+
+        <div>
+            <p class="heads">Constructor function/class Question:</p>
+        </div>
+        <ul>
+            <li>Properties:</li>
+            <ul>
+                <li><span class="propandMethod">qID</span>: a unique question ID</li>
+                <li><span class="propandMethod">answers</span>: holds quiz correct answer or student's answer.</li>
+            </ul>
+            <li>Method:</li>
+            <ul>
+                <li><span class="propandMethod">checkAnswer(answer)</span>: used to check if student's aswer is correct.</li>
+            </ul>
+        </ul>
+
+        <pre>
+        <code>
+       class Question{
+            constructor(qID, answer){
+                this.qID = qID;
+                this.answer = answer;
+            }
+            checkAnswer(answer){
+                return this.answer === answer;
+            }
+       }
+        
+        </code>
+    </pre>
+
+
+    <div>
+        <p class="heads">Constructor function/class Quiz:</p>
+    </div>
+    <ul>
+        <li>Properties:</li>
+        <ul>
+            <li><span class="propandMethod">questions</span>: It's a Map which holds question in id and correct answers. The key is question ID
+                the value is the correct answer for this question.
+            </li>
+            <li><span class="propandMethod">students</span>: an array holds all students.</li>
+        </ul>
+        <li>Method:</li>
+        <ul>
+            <li><span class="propandMethod">scoreStudent(sid)</span>: computes the quiz score for this student.</li>
+            <li><span class="propandMethod">getAverageScore()</span>: computes the average score over all students.</li>
+        </ul>
+    </ul>
+
+    <pre>
+    <code>
+   class Quiz{
+        constructor(questions, students){
+            this.questions = questions.reduce( (acc, question) => {
+                acc[question.id] = question.answer;
+                return acc;
+            }, {});
+
+            <span class="comment">// Or we can do using map as follows
+            // this.questions = questions.map(question => ({[question.id] : question.answer})) </span>
+
+            this.answer = answer;
+        }
+        
+
+        scoreStudent(sid){
+            const student = this.students.find(s => s.studentID === sid );
+            <span class="comment">
+            // or using filter
+            // const student = this.students.filter(s => s.studentID === sid);</span>
+
+            let score = 0;
+            student.answers.forEach(question => {
+                if(this.questions[question.qID] === question.answer){
+                    score++;
+                }
+            });
+            return score;
+
+        }
+
+        getAverageScore(){
+            const scores = this.students.map(student => this.scoreStudent(student.studentID));
+            return scores.reduce( (acc, score) => acc + score, 0)/scores.length;
+        }
+   }
+    
+    </code>
+</pre>
+
+
+
+    </div>
+
+
+
+
+    <footer>
+
+        <a href="http://validator.w3.org/check/?url=https://mmberhe.github.io/Lab9/index.html">
+            <img src="http://mumstudents.org/cs472/2014-09/images/w3c-html.png" alt="Valid HTML!">
+        </a>
+
+        <a href="https://jigsaw.w3.org/css-validator/validator?uri=mmberhe.github.io/css/class.css" rel="nofollow"
+            title="Validate as CSS">
+            <img src="http://mumstudents.org/cs472/2014-09/images/w3c-css.png" alt="Valid CSS!"></a>
+        <p> &copy; 2023 CS472</p>
+    </footer>
+
+
+</body>
+
+</html>
