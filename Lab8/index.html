@@ -45,16 +45,22 @@
 
             std1.FirstName = "Musie";
             std1.LastName = "Meressa";
-            std1.Grades = [90,91,92];
-            students.push(std1);
+
+            std1.inputNewGrade(90);
+            std1.inputNewGrade(95);
 
             let std2 = Object.create(student);
 
             std2.FirstName = "Shewit";
             std2.LastName = "Tsekawe";
             std2.Grades = [98,96,92];
-            students.push(std2);
 
+            std2.inputNewGrade(98);
+            std2.inputNewGrade(96);
+
+            std1.computeAverageGrade();
+            std2.computeAverageGrade();
+            
             
         </code>
 
@@ -113,8 +119,22 @@
         <code>
 
             Array.prototype.sort = function() {
-                this.sort(function (a, b) { return a - b });
+                let arr = this;
+                let temp;
+                for(let i = 0; i &lt; arr.length; i++){
+                    for(let j = i+1; j &lt; arr.length; j++ ){
+                        if(arr[i] &gt; arr[i]){
+                            temp = arr[i];
+                            arr[i] = arr[j];
+                            arr[j] = arr[i];
+                        }
+                    }
+                }
+                return arr;
               }
+
+              let numbers = [98,33,4, 42,1];
+              console.log(numbers.sort());
         </code>
 
     </pre>
