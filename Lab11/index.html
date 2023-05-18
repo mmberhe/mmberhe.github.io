@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 2</title>
+    <link rel="stylesheet" href="../css/practice.css">
+</head>
+
+<body>
+    <div class="question">
+        <p> Q1: Write the necessary Node script to make this code work for all arrays: [1,2,3,4,5,6,7,8].even() prints
+            [2,4,6,8] and [1,2,3,4,5,6,7,8].odd() prints [1,3,5,7]. Test your code in Node.js CLI</p>
+        <pre>
+        <code>
+            Array.prototype.even() = function(){
+                return this.filter( x=> x%2==0);
+            }
+
+
+            Array.prototype.odd() = function(){
+                return this.filter( x=> x%2!=0);
+            }
+
+            console.log([1,2,3,4,5,6,7,8].even()); // [2,4,6,8]
+            console.log([1,2,3,4,5,6,7,8].odd()); // [1,3,5,7]
+
+
+            // we can run it in Terminal using this command <blockquote> node q1.js</blockquote> 
+
+        </code>
+    </pre>
+    </div>
+
+
+    <div class="question">
+        <p> Q1: Create a webserver that's going to send a response of a pdf file to any client that sends a request to
+            your specified server:port. Set a content-type as "application/pdf".</p>
+        <pre>
+        <code>
+            const http = require("http");
+            const fs = require("fs");
+
+            const server = http.createServer((req,res) => {
+
+                res.writeHead(200,{
+                    'Content-Type': 'application/pdf',
+                });
+
+
+                fs.readFile('./mypdf.pdf',(err,data)=>{
+                    if(err) console.log('File couldn't found);
+                    res.end(data);
+                })
+            });
+
+            const PORT = 3000;
+            server.listen(PORT,() => {
+                console.log(`Server listening on port${PORT}`);
+            })
+
+        </code>
+    </pre>
+    </div>
+
+
+
+    <footer>
+
+        <a href="http://validator.w3.org/check/?url=https://mmberhe.github.io/Lab11/index.html">
+            <img src="http://mumstudents.org/cs472/2014-09/images/w3c-html.png" alt="Valid HTML!">
+        </a>
+
+        <a href="https://jigsaw.w3.org/css-validator/validator?uri=mmberhe.github.io/css/practice.css" rel="nofollow"
+            title="Validate as CSS">
+            <img src="http://mumstudents.org/cs472/2014-09/images/w3c-css.png" alt="Valid CSS!"></a>
+        <p> &copy; 2023 CS472</p>
+    </footer>
+
+
+
+</body>
+
+</html>
